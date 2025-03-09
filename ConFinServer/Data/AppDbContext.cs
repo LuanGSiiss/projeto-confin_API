@@ -1,0 +1,16 @@
+﻿using ConFinServer.Model;
+using Microsoft.EntityFrameworkCore;
+
+namespace ConFinServer.Data
+{
+    public class AppDbContext : DbContext
+    {
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+                            : base(options)
+        {
+
+        }
+
+        public DbSet<Estado> Estado { get; set; }
+    }
+}
