@@ -1,4 +1,7 @@
 
+using ConFinServer.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace ConFinServer
 {
     public class Program
@@ -8,6 +11,11 @@ namespace ConFinServer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            var conexao = builder.Configuration.GetConnectionString("Postgres");
+            builder.Services.AddDbContext<AppDbContext>(
+            b => b.UseNpgsql(conexao)
+            );
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
