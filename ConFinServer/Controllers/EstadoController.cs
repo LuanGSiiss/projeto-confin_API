@@ -17,7 +17,6 @@ namespace ConFinServer.Controllers
             _appDbContext = appDbContext;
         }
 
-
         [HttpGet]
         public List<Estado> GetEstado()
         {

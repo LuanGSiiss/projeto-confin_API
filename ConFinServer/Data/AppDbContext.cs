@@ -12,5 +12,7 @@ namespace ConFinServer.Data
         }
 
         public DbSet<Estado> Estado { get; set; }
+
+        public DbSet<Cidade> Cidade { get; set; }
     }
 }
