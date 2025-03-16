@@ -11,8 +11,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ConFinServer.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250314001711_Cidade")]
-    partial class Cidade
+    [Migration("20250316164550_Estado-Cidade")]
+    partial class EstadoCidade
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -6,7 +6,7 @@ namespace ConFinServer.Model
     public class Cidade
     {
         [Key]
-        [Range(1, int.MaxValue, ErrorMessage = "Código não pode ser negativo")]
+        [Range(0, int.MaxValue, ErrorMessage = "Código não pode ser negativo")]
         public int Codigo { get; set; }
 
         [Required(ErrorMessage = "Nome é obrigatório")]

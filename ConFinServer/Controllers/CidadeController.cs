@@ -44,7 +44,8 @@ namespace ConFinServer.Controllers
             if (lista.Count == 0)
             {
                 novoCodigo = 1;
-            } else
+            }
+            else
             {
                 ultimoCodigo = lista[lista.Count - 1].Codigo;
                 novoCodigo = ultimoCodigo + 1;
