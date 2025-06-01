@@ -18,7 +18,7 @@ namespace ConFinServer.Controllers
         }
 
         [HttpGet]
-        public List<Estado> GetEstado()
+        public List<Estado> GetEstados()
         {
             var lista = _appDbContext.Estado.OrderBy(e => e.Sigla).ToList();
             //select * from estado order by sigla asc
@@ -26,18 +26,21 @@ namespace ConFinServer.Controllers
             return lista;
         }
 
-        //[HttpGet("Estado2")]
-        //public string Estado(string valor)
-        //{
-        //    return valor;
-        //}
+        [HttpGet("{sigla}")]
+        public ActionResult<Estado> GetEstado([FromRoute] string sigla)
+        {
+            var estadoExiste = _appDbContext.Estado.Where(x => x.Sigla == sigla).FirstOrDefault();
+            if (estadoExiste != null)
+            {
+                return estadoExiste;
+            }
+            else
+            {
+                return NotFound("Estado não encontrado!"); ;
+            }
+        }
 
-        //[HttpGet]
-        //[Route("Lista")]
-        //public List<Estado> EstadoLista()
-        //{
-        //    return Lista;
-        //}
+        //TRATAMENTOS ACIMA
 
         [HttpPost]
         public IActionResult PostEstado([FromBody] Estado estado)
